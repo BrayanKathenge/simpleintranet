@@ -39,11 +39,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && ($role === "hr" || $role === "manag
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <h2>Post New Announcement</h2>
-  <form method="POST">
+  <form  method="POST">
+    <h2>Post New Announcement</h2>
     <input type="text" name="title" placeholder="Title" required><br><br>
-    <textarea name="content" placeholder="Write your announcement here..." rows="5" required></textarea><br><br>
-    <button type="submit">Post</button>
+    <textarea name="content" placeholder="Write your announcement here..." rows="7" required></textarea><br><br>
+    <div class="form-actions">
+      <button type="submit" class="nav-btn">Post</button>
+      <a href="announcements.php" class="nav-btn">Back</a> 
+    </div> 
+   
+
   </form>
 </body>
 </html>

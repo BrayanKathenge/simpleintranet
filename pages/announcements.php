@@ -33,10 +33,12 @@ $announcements = $conn->query("SELECT a.title, a.content, a.posted_at, u.usernam
 </head>
 
 <body>
+    <div class="wrapper">
 <header>
      <div id="preloader">
   <img src="../images/icon.png" alt="Loading..." class="preloader-logo">
 </div>
+     <h1>team11degrees </h1>
     <nav>
         <a href="../index.php" class="nav-btn">Home</a>
         <a href="announcements.php" class="nav-btn">Announcements</a>
@@ -59,8 +61,9 @@ $announcements = $conn->query("SELECT a.title, a.content, a.posted_at, u.usernam
 
     
     <?php if ($role === 'hr' || $role === 'manager'): ?>
+        <form class="announcements" method="POST" style="display:inline;">
     <a href="post_announcements.php" class="nav-btn">Post New Announcement</a>
-    <form method="POST" style="display:inline;">
+        <input type="hidden" name="clear_announcements" value="1">
         <button type="submit" name="clear_announcements" class="nav-btn"onclick="return confirm('Are you sure you want to delete all announcements?')">
             Clear All Announcements
         </button>
@@ -72,6 +75,7 @@ $announcements = $conn->query("SELECT a.title, a.content, a.posted_at, u.usernam
 <footer>
     <p>&copy; 2025 11degrees consultancy | Contact: info@11degrees.com</p>
 </footer>
+</div>
 </body>
 <?php
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["clear_announcements"])) {

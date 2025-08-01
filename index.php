@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION["user_id"])) {
-  header("Location: login.php");
+  header("Location:pages/login.php");
   exit;
 }
 ?>
@@ -18,11 +18,11 @@ if (!isset($_SESSION["user_id"])) {
     </head>
 
     <body>
-        <div id="preloader">
+        <div class="wrapper">
+        <header>
+          <div id="preloader">
   <img src="images/icon.png" alt="Loading..." class="preloader-logo">
 </div>
-
-        <header>
             <img src="images/logo.jpg" alt="company logo">
             <nav>
                 <a href="index.php" class="nav-btn">Home</a>
@@ -36,25 +36,24 @@ if (!isset($_SESSION["user_id"])) {
         <div class="container">
         <div class="Mission">
             <h1>Our Mission</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing 
-                elit. Omnis rem sapiente in debitis quas tempora 
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur suscipit, sapiente eius impedit nostrum ab neque ratione ipsum corru</p>
+            <p>Leading innovation Along East Africa</p>
 
         </div>
         
         <div class="vision">
             <h1>Our vision</h1>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi doloremque perspiciatis itaque ullam sapiente quasi quod nulla t
-                empora possimus ipsam esse perferendis fuga exercitationem praesentium,
-                 quibusdam ex quia, a non.</p>
+            <p>We are The Leading Multi- Cloud Consulting Partner in Kenya
+              Whether you are a small, medium, or large enterprise, or a public sector organization,
+               we are an AWS Partner with the right skills and experience to help you move your business forward.</p>
      
             </div>
         </div>
 
         
   <footer>
-    <p>&copy; 2025 11degrees consolutancy| Contact: info@11degrees.com</p>
+    <p>&copy; 2025 11degrees consultancy| Contact: info@11degrees.com</p>
   </footer>
+   </div>
 
     <script>
   window.addEventListener("load", function () {
@@ -65,6 +64,7 @@ if (!isset($_SESSION["user_id"])) {
     }, 1500); 
 });
     </script>
+     
 
     </body>
 

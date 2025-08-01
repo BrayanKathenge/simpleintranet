@@ -7,7 +7,7 @@ $conn = new mysqli("localhost", "root", "", "intranet");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $email = $_POST["email"];
-    $role = $_POST["role"];
+    $role = "Employee";
     $password = $_POST["password"];
     $confirm_password = $_POST["confirm_password"];
 
@@ -49,14 +49,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <input type="email" name="email" placeholder="Email" required>
       <input type="password" name="password" placeholder="Password" required>
       <input type="password" name="confirm_password" placeholder="Confirm Password" required>
-
-      <select name="role" required>
-        <option value="" disabled selected>Select Role</option>
-        <option value="employee">Employee</option>
-        <option value="hr">HR</option>
-        <option value="manager">Manager</option>
-      </select>
-
+      <input type="hidden" name="role" value="Employee">
+     
       <button type="submit">Register</button>
       <p class="register-link">Already have an account? <a href="login.php">Login</a></p>
     </form>

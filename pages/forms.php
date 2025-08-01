@@ -18,47 +18,45 @@ if(!isset($_SESSION["user_id"])){
     </head>
 
     <body>
-       <div id="preloader">
-  <img src="../images/icon.png" alt="Loading..." class="preloader-logo">
-</div>
+      <div class="wrapper">
+      
          <header>
-            <h1>11 degrees </h1>
-              <nav>
-                 <nav>
+           <div id="preloader">
+          <img src="../images/icon.png" alt="Loading..." class="preloader-logo">
+          </div>
+            <h1>team11degrees </h1>
+
+              <nav>               
                 <a href="../index.php" class="nav-btn">Home</a>
                 <a href="announcements.php" class="nav-btn" >Announcements</a>
                 <a href="policies.php" class="nav-btn">Policies</a>
                 <a href="forms.php" class="nav-btn">Forum</a>
                 <a href="logout.php" class="nav-btn">Logout</a>
             </nav>
-                
-            </nav>
+                           
         </header>
+      <main>    
+       <div id="chatBox">
+         <h1>Welcome to our Open Forum</h1>
 
-      <div id="chatBox">
-  <h1>Welcome to our Open Forum</h1>
+            <div id="messages" class="messages-area"></div>
 
-  <div id="messages" class="messages-area"></div>
-
-  <form id="chatForm" autocomplete="off" class="chat-form">
-    <input type="text" id="message" name="message" placeholder="Type your message..." required>
-    <button type="submit">Send</button>
-  </form>
-</div>
-
-  
-    
-     
-       
-       
-       
-
+            <form id="chatForm" autocomplete="off" class="chat-form">
+            <input type="text" id="message" name="message" placeholder="Type your message..." required>
+           <button type="submit">Send</button>
+             </form>
+        </div>
+      </main>
        <footer>
-    <p>&copy; 2025 11degrees consolutancy| Contact: info@11degrees.com</p>
+    <p>&copy; 2025 11degrees consultancy| Contact: info@11degrees.com</p>
   </footer>
+      </div>
 
-      <script>
-    
+      
+      
+  
+                     
+ <script>   
   window.addEventListener("load", function () {
     const preloader = document.getElementById("preloader");
     preloader.style.opacity = "0";
@@ -66,34 +64,22 @@ if(!isset($_SESSION["user_id"])){
       preloader.style.display = "none";
     }, 1500); 
   });
-
-
-
-
     window.onload = function () {
     function loadChat() {
     fetch("load_messages.php")
       .then(res => res.text())
       .then(data => {
         const messagesDiv = document.getElementById("messages");
-        messagesDiv.innerHTML = data;
-
-        
+        messagesDiv.innerHTML = data; 
         messagesDiv.scrollTop = messagesDiv.scrollHeight;
       });
   }
 
-  
-  loadChat();
-
-  
-  setInterval(loadChat, 5000);
-
-  
+  loadChat(); 
+  setInterval(loadChat, 5000);  
   document.getElementById("chatForm").onsubmit = function (e) {
     e.preventDefault();
     const msg = document.getElementById("message").value;
-
     fetch("send_messages.php", {
       method: "POST",
       headers: {
@@ -128,7 +114,8 @@ if(!isset($_SESSION["user_id"])){
   };
 };
 </script>
+ 
 
-            
-     </body>
+         
+ </body>
 </html>     
